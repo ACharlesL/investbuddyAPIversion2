@@ -8,8 +8,13 @@ const cors = require('cors')
 // require route files
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
+const stockRoutes = require('./app/routes/stock_routes')
 // const uploadRoutes = require('./app/routes/upload_routes')
 
+// //test stock object
+// const RealStock = require('./services/realStockData')
+// const UserStock = require('./services/UserStock')
+const Ai = require('./services/AIagent')
 // require database configuration logic
 // `db` will be the actual Mongo URI as a string
 const db = require('./config/db')
@@ -73,6 +78,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // register route files
 app.use(exampleRoutes)
 app.use(userRoutes)
+app.use(stockRoutes)
+
+let aitest = new Ai()
+aitest.sayHi()
+aitest.getStock()
+aitest.getHistoricalData()
+
 // app.use(uploadRoutes)
 // run API on designated port (4741 in this case)
 app.listen(port, () => {
