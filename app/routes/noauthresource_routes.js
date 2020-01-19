@@ -15,11 +15,8 @@ router.get('/noauthresource', (req, res) => {
 })
 
 router.post('/noauthresource', (req, res) => {
-  // const noauthresourceObj = {
-  //   title: req.body.title,
-  //   text: req.body.text
-  // }
-  noauthresource.create(req.body.noauthresourceObj)
+ 
+  noauthresource.create(req.body.noauthresource)
     .then(noauthresource => {
       res.status(201).json({ noauthresource: noauthresource.toObject() })
     })
