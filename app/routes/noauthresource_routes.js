@@ -8,7 +8,7 @@ const router = express.Router()
 router.get('/noauthresource', (req, res) => {
   noauthresource.find()
     .then(noauthresource => {
-      return res.send(Object.values(noauthresource))
+      return noauthresource.map(noauthresource => noauthresource.toObject())
     })
     .then(noauthresource => res.status(200).json({noauthresource: noauthresource}))
     .catch(err => handle(err, res))
