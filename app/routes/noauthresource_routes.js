@@ -19,7 +19,11 @@ router.post('/noauthresource', (req, res) => {
     title: req.body.title,
     text: req.body.text
   }
-  return res.send(noauthresourceObj)
+  noauthresource.create(noauthresourceObj)
+    .then(noauthresource => {
+      res.status(201).json({ noauthresource: noauthresource.toObject() })
+    })
+    .catch(err => handle(err, res))
 })
 
 module.exports = router
