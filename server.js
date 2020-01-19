@@ -9,6 +9,7 @@ const cors = require('cors')
 const exampleRoutes = require('./app/routes/example_routes')
 const userRoutes = require('./app/routes/user_routes')
 const stockRoutes = require('./app/routes/stock_routes')
+const noauthresourceRoutes = require('./app/routes/noauthresource_routes')
 // const uploadRoutes = require('./app/routes/upload_routes')
 
 // //test stock object
@@ -79,6 +80,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(exampleRoutes)
 app.use(userRoutes)
 app.use(stockRoutes)
+app.use(noauthresourceRoutes)
 
 let aitest = new Ai()
 aitest.sayHi()
